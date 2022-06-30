@@ -1,6 +1,6 @@
 const { Client } = require("pg");
 const client = new Client({
-  connectionString: proccess.env.DB_URL
+  connectionString: process.env.DB_URL
 });
 
 async function main(args) {
