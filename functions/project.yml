@@ -5,14 +5,14 @@ packages:
         runtime: 'nodejs:default'
         web: true
         environment:
-          DB_HOSTNAME: "${DB_HOSTNAME}"
+          DB_URL: "${DB_URL}"
       - name: newRow
         runtime: 'nodejs:default'
         web: true
         environment:
-          DB_HOSTNAME: "${DB_HOSTNAME}"
+          DB_URL: "${DB_URL}"
       - name: triggered
         runtime: 'nodejs:default'
         web: true
         environment:
-          DB_HOSTNAME: "${DB_HOSTNAME}"
+          DB_URL: "${DB_URL}"
