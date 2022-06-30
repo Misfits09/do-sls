@@ -1,0 +1,32 @@
+name: My Serverless App
+functions:
+  - name: backend
+    github:
+      repo: Misfits09/do-sls
+      branch: master
+      deploy_on_push: true
+    source_dir: ./functions
+    envs:
+      - key: DB_HOSTNAME
+        value: "${mainDB.DATABASE_URL}"
+        scope: RUN_TIME
+      - key: DB_PORT
+        value: "${mainDB.PORT}"
+        scope: RUN_TIME
+      - key: DB_USERNAME
+        value: "${mainDB.USERNAME}"
+        scope: RUN_TIME
+      - key: DB_PASSWORD
+        value: "${mainDB.PASSWORD}"
+        scope: RUN_TIME
+    routes:
+      - path: /api
+services:
+  - name: mainDB
+    engine: PG
+    production: false
+    dockerfile_path: ./database/Dockerfile
+    internal_ports: 5432
+    envs:
+      - key: TRIGGER_ENDPOINT
+        value: "${backend.HOSTNAME/triggered}"
