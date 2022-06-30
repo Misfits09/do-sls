@@ -13,7 +13,7 @@ async function main(args) {
   try{
     console.log(greeting);
     console.log("Attempting connection...")
-    console.log("Using CA :", process.env.DB_CA)
+    console.log("Using CA :", process.env.DB_CA, client.ssl, client.ssl.ca)
     
     console.log("Done ? ", await client.connect())
     const res = await client.query("INSERT INTO data VALUES (111,?)",[name])
