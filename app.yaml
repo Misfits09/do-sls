@@ -8,7 +8,7 @@ functions:
     source_dir: ./functions
     envs:
       - key: DB_HOSTNAME
-        value: "${maindb.PRIVATE_URL}"
+        value: "${maindb.PRIVATE_DOMAIN}"
         scope: RUN_TIME
     routes:
       - path: /api
