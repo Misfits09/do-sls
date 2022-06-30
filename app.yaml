@@ -10,6 +10,9 @@ functions:
       - key: DB_URL
         value: "${maindb.DATABASE_URL}"
         scope: RUN_TIME
+      - key: DB_CA
+        value: "${maindb.CA_CERT}"
+        scope: RUN_TIME
     routes:
       - path: /api
 databases:

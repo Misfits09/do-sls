@@ -6,13 +6,16 @@ packages:
         web: true
         environment:
           DB_URL: "${DB_URL}"
+          DB_CA: "${DB_CA}"
       - name: newRow
         runtime: 'nodejs:default'
         web: true
         environment:
           DB_URL: "${DB_URL}"
+          DB_CA: "${DB_CA}"
       - name: triggered
         runtime: 'nodejs:default'
         web: true
         environment:
           DB_URL: "${DB_URL}"
+          DB_CA: "${DB_CA}"
