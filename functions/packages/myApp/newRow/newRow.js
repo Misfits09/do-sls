@@ -1,15 +1,11 @@
 const { Client } = require("pg");
 const client = new Client({
-  user: "username",
-  host: process.env.DB_HOSTNAME,
-  database: "myapp",
-  password: "p@ssw0rd",
-  port: 5432,
+  connectionString: proccess.env.DB_URL
 });
 
 async function main(args) {
   let name = args.name || "stranger";
-  let greeting = `Hello ${name} ! ${process.env.DB_HOSTNAME}`;
+  let greeting = `Hello ${name} !`;
   try{
     console.log(greeting);
     console.log("Attempting connection...")

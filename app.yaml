@@ -7,21 +7,12 @@ functions:
       deploy_on_push: true
     source_dir: ./functions
     envs:
-      - key: DB_HOSTNAME
-        value: "${maindb.PRIVATE_DOMAIN}"
+      - key: DB_URL
+        value: "${maindb.DATABASE_URL}"
         scope: RUN_TIME
     routes:
       - path: /api
-services:
+databases:
   - name: maindb
-    github:
-      repo: Misfits09/do-sls
-      branch: master
-      deploy_on_push: true
-    source_dir: ./database
-    dockerfile_path: ./database/Dockerfile
-    internal_ports: [5432]
-    envs:
-      - key: TRIGGER_ENDPOINT
-        value: "${backend.HOSTNAME}/api/myApp/triggered"
-        scope: BUILD_TIME
+    engine: PG
+    production: false
