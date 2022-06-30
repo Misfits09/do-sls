@@ -10,13 +10,18 @@ const client = new Client({
 async function main(args) {
   let name = args.name || "stranger";
   let greeting = `Hello ${name} ! ${process.env.DB_HOSTNAME}`;
-  console.log(greeting);
-  console.log("Attempting connection...")
+  try{
+    console.log(greeting);
+    console.log("Attempting connection...")
+    
+    console.log("Done ? ", await client.connect())
+    const res = await client.query("INSERT INTO data VALUES (111,?)",[name])
+    console.log("Insert response:" , res);
+  }catch(e){
+    console.log("Error happened", e);
+    return {body: "Unhappy !"}
+  }
   
-  console.log("Done ? ", await client.connect())
-  const res = await client.query("INSERT INTO data VALUES (111,?)",[name])
-  console.log("Insert response:" , res);
-
   return { body: greeting };
 }
 

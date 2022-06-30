@@ -23,5 +23,5 @@ services:
     internal_ports: [5432]
     envs:
       - key: TRIGGER_ENDPOINT
-        value: "${backend.HOSTNAME/triggered}"
+        value: "${backend.HOSTNAME}/api/myApp/triggered"
         scope: BUILD_TIME
