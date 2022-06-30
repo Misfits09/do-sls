@@ -11,9 +11,11 @@ async function main(args) {
   let name = args.name || "stranger";
   let greeting = `Hello ${name} ! ${process.env.DB_HOSTNAME}`;
   console.log(greeting);
-  await client.connect();
+  console.log("Attempting connection...")
+  
+  console.log("Done ? ", await client.connect())
   const res = await client.query("INSERT INTO data VALUES (111,?)",[name])
-  console.debug(res);
+  console.log("Insert response:" , res);
 
   return { body: greeting };
 }

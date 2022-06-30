@@ -3,7 +3,6 @@ ARG TRIGGER_ENDPOINT=default
 
 ENV POSTGRES_USER username
 ENV POSTGRES_PASSWORD p@ssw0rd
-ENV POSTGRES_DB p@ssw0rd
 ENV POSTGRES_DB myapp
 
 RUN apt-get update && apt-get install -y postgresql-plpython3-13 python3 python3-requests
